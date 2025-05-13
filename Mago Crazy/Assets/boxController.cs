@@ -24,8 +24,8 @@ public class boxController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collided");
-        Debug.Log("Counter: " + counter);
+        //Debug.Log("Collided");
+        //Debug.Log("Counter: " + counter);
         if (hasCollided)
             return;
         if (counter == VList.Length - 1)
@@ -33,7 +33,7 @@ public class boxController : MonoBehaviour
         else
             counter++;
         hasCollided = true;
-        Debug.Log("Counter after: " + counter);
+        //Debug.Log("Counter after: " + counter);
     }
     void OnTriggerExit(Collider other)
     {
@@ -52,7 +52,7 @@ public class boxController : MonoBehaviour
         VList[2] = temp;
         temp = new Vector3(0, 0, -1);
         VList[3] = temp;
-        Debug.Log(VList[0] + " ; " + VList[1]);
+        //Debug.Log(VList[0] + " ; " + VList[1]);
         Vector3 Direction = VList[counter];
         
     }
