@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 
 public class boxController : MonoBehaviour
 {
+    private GameObject enemy;
     private bool hasCollided;
     private Rigidbody rb;
     private int counter;
@@ -28,12 +29,15 @@ public class boxController : MonoBehaviour
         //Debug.Log("Counter: " + counter);
         if (hasCollided)
             return;
-        if (counter == VList.Length - 1)
+        if (other.tag == "checkpoint")
+        {
+            if (counter == VList.Length - 1)
             counter = 0;
         else
             counter++;
         hasCollided = true;
         //Debug.Log("Counter after: " + counter);
+        }
     }
     void OnTriggerExit(Collider other)
     {
@@ -42,6 +46,7 @@ public class boxController : MonoBehaviour
 
     void Start()
     {
+        enemy = gameObject;
         counter = 0;
         rb = GetComponent<Rigidbody>();
         Vector3 temp = new Vector3(1, 0, 0);
