@@ -54,6 +54,7 @@ public class playerController : MonoBehaviour
     {
         if (shouldCollect && !isCollecting)
         {
+            shouldCollect = false;
             isCollecting = true;
             Destroy(other.gameObject);
             lightController.Instance.AdjustLight();
@@ -78,5 +79,6 @@ public class playerController : MonoBehaviour
     {
         hasCollided = false;
         isCollecting = false;
+        canCollect = false;
     }
 }

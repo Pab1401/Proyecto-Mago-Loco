@@ -24,7 +24,7 @@ public class lightController : MonoBehaviour
     public void AdjustLight()
     {
         totalCollected++;
-        float newIntensity = Mathf.Max(1f, 32f - 8f * totalCollected);
+        float newIntensity = Mathf.Max(1f, 32f - 10f * totalCollected);
 
          foreach (Light light in sceneLights)
         {
