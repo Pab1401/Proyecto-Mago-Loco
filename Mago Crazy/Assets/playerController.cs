@@ -56,6 +56,7 @@ public class playerController : MonoBehaviour
         {
             isCollecting = true;
             Destroy(other.gameObject);
+            lightController.Instance.AdjustLight();
             collectedTotal++;
             Debug.Log(collectedTotal);
         }

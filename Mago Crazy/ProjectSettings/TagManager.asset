@@ -6,6 +6,8 @@ TagManager:
   tags:
   - enemy
   - checkpoint
+  - collect
+  - light
   layers:
   - Default
   - TransparentFX
