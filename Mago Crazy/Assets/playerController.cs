@@ -10,7 +10,6 @@ public class playerController : MonoBehaviour
     float verticalInput;
     float playerSpeed = 5f;
     bool hasCollided = false;
-    bool isCollecting = false;
     bool shouldCollect = false;
     bool canCollect = false;
     float sensitivity;
@@ -79,7 +78,6 @@ public class playerController : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         hasCollided = false;
-        isCollecting = false;
         canCollect = false;
     }
 }

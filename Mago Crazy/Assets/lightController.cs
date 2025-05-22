@@ -10,11 +10,11 @@ public class lightController : MonoBehaviour
     int totalCollected;
     void Start()
     {
-        sceneLights = new Light[GameObject.FindGameObjectsWithTag("light").Length];
-        sceneLights = GameObject.FindGameObjectsWithTag("light")
-                                .Select(go => go.GetComponent<Light>())
-                                .Where(light => light != null)
-                                .ToArray();
+        foreach (Light item in sceneLights)
+        {
+            item.intensity = 150f;
+            item.range = 20f;
+        }
     }
     private void Awake()
     {
@@ -24,7 +24,7 @@ public class lightController : MonoBehaviour
     public void AdjustLight()
     {
         totalCollected++;
-        float newIntensity = Mathf.Max(1f, 32f - 10f * totalCollected);
+        float newIntensity = Mathf.Max(1f, 150f - 45f * totalCollected);
 
          foreach (Light light in sceneLights)
         {
