@@ -52,26 +52,27 @@ public class playerController : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (shouldCollect && !isCollecting)
+        if (shouldCollect)
         {
             shouldCollect = false;
-            isCollecting = true;
+            canCollect = false;
             Destroy(other.gameObject);
             lightController.Instance.AdjustLight();
             collectedTotal++;
             Debug.Log(collectedTotal);
         }
-        if (other.tag == "collect")
-            canCollect = true; Debug.Log("CanCollect");
+        
     }
     void OnTriggerEnter(Collider other)
     {
-        if(hasCollided)
+        if (other.tag == "collect")
+            canCollect = true;
+        if (hasCollided)
             return;
         if (other.tag == "enemy")
         {
             Vector3 knockback = new Vector3(-1 * (this.transform.position.x - other.transform.position.x), 0 , -1 * (this.transform.position.y - other.transform.position.y)).normalized;
-            rb.AddForce(knockback * 100, ForceMode.Impulse);
+            rb.AddForce(knockback * 200, ForceMode.Impulse);
             hasCollided = true;
         }
     }
