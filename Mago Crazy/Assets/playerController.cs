@@ -39,6 +39,7 @@ public class playerController : MonoBehaviour
         if (!alive)
         {
             Debug.Log("Dead");
+            SceneManager.LoadScene("Lose");
         }
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
@@ -69,7 +70,7 @@ public class playerController : MonoBehaviour
     {
         if (shouldExit)
         {
-
+            SceneManager.LoadScene("Win");
         }
         if (shouldCollect)
             {
